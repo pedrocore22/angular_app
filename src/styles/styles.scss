@@ -1,0 +1,18 @@
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+
+@import './base/reset';
+@import './base/typography';
+
+@import './components/buttons';
+@import './components/cards';
+
+@import './layout/containers';
+@import './layout/header-nav';
+
+body {
+    font-family: $regular-font-family;
+    color: $regular-font-color;
+    background-color: #f5f5f5;
+}

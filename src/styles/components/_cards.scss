@@ -1,0 +1,27 @@
+.card {
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 4px grey;
+
+    &.home {
+        width: 360px;
+        margin: 1rem;
+
+        div:nth-child(1) {
+            padding: 2rem 1rem;
+            @include flex(row, center, center);
+            h1 { font-size: 1.3rem }
+            img { 
+                height: 80px;
+                margin-left: 0.5rem;
+            }
+        }
+
+        div:nth-child(2) {
+            padding: 1rem;
+            @include flex(row, center, center);
+            border-top: 1px solid lightgray;
+        }
+    }
+
+}
+

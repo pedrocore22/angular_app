@@ -1,0 +1,7 @@
+.container {
+    padding: 1rem;
+
+    &.home {
+        @include flex(row, center, center);
+    }
+}
