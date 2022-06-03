@@ -1,0 +1,58 @@
+aside {
+    width: 18rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -15rem;
+    z-index: 10;
+    background-color: $brand-color;
+    padding-top: 80px;
+    transition: 600ms all ease-in-out;
+
+    .burger {
+        position: absolute;
+        top: 1.4rem;
+        right: 0.8rem;
+        cursor: pointer;
+
+        .bar {
+            width: 1.6rem;
+            height: 2.5px;
+            margin: 6px 0;
+            background-color: white;
+            transition: 600ms all ease-in-out;
+        }
+    }
+
+    &.open {
+        left: 0;
+
+        .bar.top {
+            transform: translateY(8.5px) rotateZ(45deg);
+        }
+        .bar.medium {
+            width: 0;
+        }
+        .bar.bottom {
+            transform: translateY(-8.5px) rotateZ(-45deg);
+        }
+
+    }
+
+    .item {
+        padding: 0.5rem 1rem;
+        @include flex(row, flex-end, center);
+        color: white;
+        transition: all 600ms ease-in-out;
+
+        img {
+            width: 1.5rem;
+            margin-left: 0.8rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $darker-brand-color;
+        }
+    }
+}
