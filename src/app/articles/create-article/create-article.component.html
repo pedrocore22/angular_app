@@ -7,31 +7,62 @@
         </p>
     </div>
     <div class="card">
-        <form>
+        <form [formGroup]="form">
             <div class="row">
                 <div class="col-50">
-                    <label>Código SKU</label>
-                    <input type="text">
+                    <label>
+                        Código SKU
+                        <span class="alert"
+                              *ngIf="form.controls?.['sku']?.errors?.['required']">
+                            *
+                        </span>
+                        <span class="alert"
+                              *ngIf="form.controls?.['sku']?.errors?.['required'] &&
+                                     form.controls?.['sku']?.dirty">
+                            SKU obligatorio
+                        </span>
+                        <span class="alert"
+                              *ngIf="form.controls?.['sku']?.errors?.['minlength']">
+                            SKU debe tener 4 caracteres
+                        </span>
+                        <span class="success"
+                              *ngIf="form.controls?.['sku']?.valid">
+                            &#10004;
+                        </span>
+                    </label>
+                    <input type="text" formControlName="sku" maxlength="4">
                 </div>
                 <div class="col-50">
                     <label>Marca</label>
-                    <input type="text">
+                    <input type="text" formControlName="marca">
                 </div>
             </div>
             <div class="row">
                 <div class="col-50">
                     <label>Modelo</label>
-                    <input type="text">
+                    <input type="text" formControlName="modelo">
                 </div>
                 <div class="col-50">
                     <label>Género</label>
-                    <select>
+                    <select formControlName="genero">
                         <option value="Hombre">Hombre</option>
                         <option value="Mujer">Mujer</option>
                         <option value="Niña">Niña</option>
                         <option value="Niño">Niño</option>
                         <option value="todos">todos</option>
                     </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <label>Descripción</label>
+                    <textarea formControlName="descripcion"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100 flex j-end">
+                    <button class="outline">Cancelar</button>
+                    <button class="m-l">Enviar</button>
                 </div>
             </div>
         </form>

@@ -33,3 +33,40 @@
         }
     }
 }
+
+// Clases para implementar flex "al vuelo"
+
+.flex {
+    display: flex;
+
+    &.j-start {
+        justify-content: flex-start;
+    }
+
+    &.j-center {
+        justify-content: center;
+    }
+
+    &.j-end {
+        justify-content: flex-end;
+    }
+
+}
+
+// Clases para espaciado "al vuelo"
+
+.m-t {
+    margin-top: 0.5rem;
+}
+
+.m-b {
+    margin-bottom: 0.5rem;
+}
+
+.m-l {
+    margin-left: 0.5rem;
+}
+
+.m-r {
+    margin-right: 0.5rem;
+}
