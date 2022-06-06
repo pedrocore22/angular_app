@@ -6,4 +6,9 @@ button {
     color: white;
     cursor: pointer;
     font-family: $regular-font-family;
+
+    &.outline {
+        background-color: white;
+        color: $brand-color;
+    }
 }

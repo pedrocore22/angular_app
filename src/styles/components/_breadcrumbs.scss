@@ -1,0 +1,18 @@
+.breadcrumbs {
+    margin-bottom: 1rem;
+    @include flex(row, space-between, center);
+
+    p {
+        font-size: 1.2rem;
+
+        span {
+            cursor: pointer;
+        }
+
+        span.active {
+            font-weight: bold;
+            color: $brand-color;
+            cursor: default;
+        }
+    }
+}

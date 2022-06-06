@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesDashboardComponent } from './articles/articles-dashboard/articles-dashboard.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateArticleComponent } from './articles/create-article/create-article.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     HomeComponent,
     ArticlesDashboardComponent,
     HeaderNavComponent,
-    SideNavComponent
+    SideNavComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

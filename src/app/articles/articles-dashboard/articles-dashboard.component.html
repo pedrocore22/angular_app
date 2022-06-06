@@ -1,6 +1,12 @@
 <div class="container">
+    <div class="breadcrumbs">
+        <p>
+            <span routerLink="/">Inicio > </span>
+            <span class="active">Artículos</span>
+        </p>
+        <button class="outline" routerLink="/create-article">Nuevo</button>
+    </div>
     <div class="card">
-        <h1>Artículos</h1>
         <table>
             <tr>
                 <th>Marca</th>
@@ -8,7 +14,12 @@
                 <th>Género</th>
                 <th></th>
             </tr>
-            <!-- Registros de la API -->
+            <tr *ngFor="let article of articles">
+                <td>{{article.marca}}</td>
+                <td>{{article.modelo}}</td>
+                <td>{{article.genero}}</td>
+                <td></td>
+            </tr>
         </table>
     </div>
 </div>
