@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+
+    th {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        text-align: left;
+        border-bottom: 1px solid $regular-font-color;
+    }
+
+    td {
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid lightgray;
+    }
+
+}
+
