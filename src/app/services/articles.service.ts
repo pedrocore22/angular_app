@@ -20,4 +20,13 @@ export class ArticlesService {
                     )
   }
 
+  postArticle(article: any) {
+    return this.http.post(this.articlesEndpoint, article)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )
+  }
+
 }
