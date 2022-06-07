@@ -96,9 +96,17 @@
                             routerLink="/articles">Cancelar</button>
                     <button class="m-l" 
                             [disabled]="form.invalid"
-                            type="submit">Enviar</button>
+                            type="submit">
+                            <span *ngIf="isLoading">Espere...</span>
+                            <span *ngIf="!isLoading">Enviar</span>
+                    </button>
                 </div>
             </div>
         </form>
     </div>
+</div>
+<div class="toast" 
+     [ngClass]="classToast" 
+     *ngIf="isShowToast">
+    <p>{{messageToast}}</p>
 </div>

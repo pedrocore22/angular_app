@@ -11,6 +11,10 @@ import { ArticlesService } from 'src/app/services/articles.service';
 export class CreateArticleComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
+  isLoading: boolean = false;
+  messageToast: string = '';
+  classToast: string = '';
+  isShowToast: boolean = false;
 
   constructor(private articlesService: ArticlesService,
               private router: Router) { }
@@ -26,15 +30,32 @@ export class CreateArticleComponent implements OnInit {
   }
 
   createArticulo(): void {
+    this.isLoading = true;
     this.articlesService.postArticle(this.form.value)
                         .subscribe({
                           next: (data: any) => {
-                            this.router.navigate(['/articles']);
+                            this.isLoading = false;
+                            this.setToastValues('success', data.message);
+                            this.isShowToast = true;
+                            const timer = setTimeout(() => {
+                              this.isShowToast = false;
+                              this.router.navigate(['/articles']);
+                            }, 4000)
                           },
                           error: (err: any) => {
-                            console.log(err);
+                            this.isLoading = false;
+                            this.setToastValues('warning', err.error.message);
+                            this.isShowToast = true;
+                            const timer = setTimeout(() => {
+                              this.isShowToast = false;
+                            }, 4000)
                           }
                         })
+  }
+
+  setToastValues(type: string, message: string): void {
+    this.classToast = type;
+    this.messageToast = message;
   }
 
 }
