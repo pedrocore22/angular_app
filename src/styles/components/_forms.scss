@@ -2,6 +2,20 @@ form {
     max-width: 620px;
     margin: 0 auto;
 
+    &.search {
+        max-width: 100%;
+        margin-bottom: 1rem;
+
+        input {
+            max-width: 320px;
+            padding-left: 1.6rem;
+            background-image: url('../../assets/icons_app-main/search.svg');
+            background-repeat: no-repeat;
+            background-position: 0 0.3rem;
+        }
+    }
+
+
     label {
         font-size: 0.8rem;
         text-transform: uppercase;

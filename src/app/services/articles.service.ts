@@ -20,6 +20,17 @@ export class ArticlesService {
                     )
   }
 
+  getArticlesByModel(modelTerm: string) {
+    return this.http.get(this.articlesEndpoint +
+                             '/search/modelo/' + 
+                             modelTerm)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )
+  }
+
   postArticle(article: any) {
     return this.http.post(this.articlesEndpoint, article)
                     .pipe(

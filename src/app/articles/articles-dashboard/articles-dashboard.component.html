@@ -7,6 +7,11 @@
         <button class="outline" routerLink="/create-article">Nuevo</button>
     </div>
     <div class="card">
+        <form class="search" [formGroup]="form">
+            <input type="search" 
+                   placeholder="Modelo"
+                   formControlName="modelTerm">
+        </form>
         <table>
             <tr>
                 <th>Marca</th>
@@ -14,17 +19,19 @@
                 <th>Género</th>
                 <th></th>
             </tr>
-            <tr>
+            <tr *ngIf="isSearching">
                 <td colspan="4">
                     <app-spinner></app-spinner>
                 </td>
             </tr>
-            <!-- <tr *ngFor="let article of articles">
-                <td>{{article.marca}}</td>
-                <td>{{article.modelo}}</td>
-                <td>{{article.genero}}</td>
-                <td></td>
-            </tr> -->
+            <ng-container *ngIf="!isSearching">
+                <tr *ngFor="let article of articles">
+                    <td>{{article.marca}}</td>
+                    <td>{{article.modelo}}</td>
+                    <td>{{article.genero}}</td>
+                    <td></td>
+                </tr>
+            </ng-container>
         </table>
     </div>
 </div>
