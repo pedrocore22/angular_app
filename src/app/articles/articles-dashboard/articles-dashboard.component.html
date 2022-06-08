@@ -14,12 +14,17 @@
                 <th>Género</th>
                 <th></th>
             </tr>
-            <tr *ngFor="let article of articles">
+            <tr>
+                <td colspan="4">
+                    <app-spinner></app-spinner>
+                </td>
+            </tr>
+            <!-- <tr *ngFor="let article of articles">
                 <td>{{article.marca}}</td>
                 <td>{{article.modelo}}</td>
                 <td>{{article.genero}}</td>
                 <td></td>
-            </tr>
+            </tr> -->
         </table>
     </div>
 </div>

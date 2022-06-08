@@ -10,6 +10,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateArticleComponent } from './articles/create-article/create-article.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateArticleComponent } from './articles/create-article/create-article
     ArticlesDashboardComponent,
     HeaderNavComponent,
     SideNavComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

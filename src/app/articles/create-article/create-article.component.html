@@ -95,7 +95,7 @@
                             type="button"
                             routerLink="/articles">Cancelar</button>
                     <button class="m-l" 
-                            [disabled]="form.invalid"
+                            [disabled]="form.invalid || isLoading"
                             type="submit">
                             <span *ngIf="isLoading">Espere...</span>
                             <span *ngIf="!isLoading">Enviar</span>
