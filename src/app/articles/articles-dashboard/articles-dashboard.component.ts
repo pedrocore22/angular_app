@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ArticlesService } from 'src/app/services/articles.service';
 
@@ -9,6 +9,8 @@ import { ArticlesService } from 'src/app/services/articles.service';
 })
 export class ArticlesDashboardComponent implements OnInit {
 
+  @ViewChild('search') searchInputRef: ElementRef = new ElementRef({});
+  @ViewChild('overlay') overlayRef: ElementRef = new ElementRef({});
   articles: Array<any> = [];
   form: FormGroup = new FormGroup({});
   isSearching: boolean = false;
@@ -29,6 +31,13 @@ export class ArticlesDashboardComponent implements OnInit {
       modelTerm: new FormControl('')
     })
     this.onSearchChanges();
+  }
+
+  // Hook que garantiza que todos los elementos del DOM
+  // estén renderizados
+
+  ngAfterViewInit() {
+    this.searchInputRef.nativeElement.focus();
   }
 
   onSearchChanges(): void {
@@ -53,4 +62,9 @@ export class ArticlesDashboardComponent implements OnInit {
 
              })
   }
+
+  showArticle() {
+    this.overlayRef.nativeElement.classList.toggle('open');
+  }
+  
 }

@@ -10,7 +10,8 @@
         <form class="search" [formGroup]="form">
             <input type="search" 
                    placeholder="Modelo"
-                   formControlName="modelTerm">
+                   formControlName="modelTerm"
+                   #search>
         </form>
         <table>
             <tr>
@@ -29,9 +30,25 @@
                     <td>{{article.marca}}</td>
                     <td>{{article.modelo}}</td>
                     <td>{{article.genero}}</td>
-                    <td></td>
+                    <td>
+                        <span (click)="showArticle()">
+                            <img src="/assets/icons_app-main/eye.svg" alt="">
+                        </span>
+                    </td>
                 </tr>
             </ng-container>
+            <tr *ngIf="articles.length === 0 && 
+                       form.controls['modelTerm'].value.length !== 0 &&
+                       !isSearching">
+                <td colspan="4">No se encontraron coincidencias</td>
+            </tr>
         </table>
+    </div>
+</div>
+<div class="overlay" #overlay>
+    <div class="modal">
+        <div class="modal-header">
+            <span (click)="showArticle()">&#x2715;</span>
+        </div>
     </div>
 </div>
