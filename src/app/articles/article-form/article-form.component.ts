@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticlesService } from 'src/app/services/articles.service';
@@ -12,9 +12,8 @@ export class ArticleFormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   isLoading: boolean = false;
-  messageToast: string = '';
-  classToast: string = '';
-  isShowToast: boolean = false;
+  @Input() article: any = {};
+  @Input() saveMode: string = '';
 
   constructor(private articlesService: ArticlesService,
               private router: Router) { }
@@ -29,33 +28,36 @@ export class ArticleFormComponent implements OnInit {
     })
   }
 
-  createArticulo(): void {
-    this.isLoading = true;
-    this.articlesService.postArticle(this.form.value)
-                        .subscribe({
-                          next: (data: any) => {
-                            this.isLoading = false;
-                            this.setToastValues('success', data.message);
-                            this.isShowToast = true;
-                            const timer = setTimeout(() => {
-                              this.isShowToast = false;
-                              this.router.navigate(['/articles']);
-                            }, 4000)
-                          },
-                          error: (err: any) => {
-                            this.isLoading = false;
-                            this.setToastValues('warning', err.error.message);
-                            this.isShowToast = true;
-                            const timer = setTimeout(() => {
-                              this.isShowToast = false;
-                            }, 4000)
-                          }
-                        })
+  ngOnChanges() {
+    this.form.patchValue(this.article);
   }
 
-  setToastValues(type: string, message: string): void {
-    this.classToast = type;
-    this.messageToast = message;
+  saveArticulo(): void {
+    this.isLoading = true;
+    if (this.saveMode === 'update') {
+      this.articlesService.putArticle(this.article.id, this.form.value)
+                          .subscribe({
+                            next: (data: any) => {
+                              this.isLoading = false;
+                              this.router.navigate(['/articles']);
+                            },
+                            error: (err: any) => {
+                              this.isLoading = false;
+                            }
+                          })
+    } else {
+      this.articlesService.postArticle(this.form.value)
+                          .subscribe({
+                            next: (data: any) => {
+                              this.isLoading = false;
+                              this.router.navigate(['/articles']);
+                            },
+                            error: (err: any) => {
+                              this.isLoading = false;
+                            }
+                          })
+    }
+
   }
 
 }

@@ -1,1 +1,13 @@
-<p>update-article works!</p>
+<div class="container">
+    <div class="breadcrumbs">
+        <p>
+            <span routerLink="/">Inicio > </span>
+            <span routerLink="/articles">Articulos > </span>
+            <span class="active">Modificar artículo</span>
+        </p>
+    </div>
+    <div class="card">
+        <app-article-form [article]="article"
+                          [saveMode]="'update'"></app-article-form>
+    </div>
+</div>

@@ -31,6 +31,15 @@ export class ArticlesService {
                     )
   }
 
+  getArticleById(id: string) {
+    return this.http.get(this.articlesEndpoint + '/' + id)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )
+  }
+
   postArticle(article: any) {
     return this.http.post(this.articlesEndpoint, article)
                     .pipe(
@@ -38,6 +47,15 @@ export class ArticlesService {
                         return resp;
                       })
                     )
+  }
+
+  putArticle(id: string, article: any) {
+    return this.http.put(this.articlesEndpoint + '/' + id, article)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )        
   }
 
 }
