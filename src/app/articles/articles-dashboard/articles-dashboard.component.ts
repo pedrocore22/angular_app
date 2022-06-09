@@ -14,6 +14,7 @@ export class ArticlesDashboardComponent implements OnInit {
   articles: Array<any> = [];
   form: FormGroup = new FormGroup({});
   isSearching: boolean = false;
+  articleIndex: number = 0;
 
   constructor(private articlesService: ArticlesService) { }
 
@@ -63,8 +64,24 @@ export class ArticlesDashboardComponent implements OnInit {
              })
   }
 
-  showArticle() {
-    this.overlayRef.nativeElement.classList.toggle('open');
+  toggleModal() {
+    // Just for fun :)
+    if (this.overlayRef.nativeElement.classList.contains('display')) {
+      this.overlayRef.nativeElement.classList.toggle('open');
+      setTimeout(() => {
+        this.overlayRef.nativeElement.classList.toggle('display');
+      }, 600);
+    } else {
+      this.overlayRef.nativeElement.classList.toggle('display');
+      setTimeout(() => {
+        this.overlayRef.nativeElement.classList.toggle('open');
+      }, 100); 
+    }
   }
-  
+
+  showArticle(index: number): void {
+    this.articleIndex = index;
+    this.toggleModal();
+  }
+
 }

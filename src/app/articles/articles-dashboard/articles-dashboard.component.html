@@ -26,13 +26,16 @@
                 </td>
             </tr>
             <ng-container *ngIf="!isSearching">
-                <tr *ngFor="let article of articles">
+                <tr *ngFor="let article of articles; let i = index">
                     <td>{{article.marca}}</td>
                     <td>{{article.modelo}}</td>
                     <td>{{article.genero}}</td>
                     <td>
-                        <span (click)="showArticle()">
+                        <span (click)="showArticle(i)">
                             <img src="/assets/icons_app-main/eye.svg" alt="">
+                        </span>
+                        <span class="m-l">
+                            <img src="/assets/icons_app-main/edit.svg" alt="">
                         </span>
                     </td>
                 </tr>
@@ -48,7 +51,31 @@
 <div class="overlay" #overlay>
     <div class="modal">
         <div class="modal-header">
-            <span (click)="showArticle()">&#x2715;</span>
+            <span (click)="toggleModal()">&#x2715;</span>
+        </div>
+        <div class="modal-body">
+            <table class="side-header">
+                <tr>
+                    <th>Código SKU</th>
+                    <td>{{articles[articleIndex].sku}}</td>
+                </tr>
+                <tr>
+                    <th>Marca</th>
+                    <td>{{articles[articleIndex].marca}}</td>
+                </tr>
+                <tr>
+                    <th>Modelo</th>
+                    <td>{{articles[articleIndex].modelo}}</td>
+                </tr>
+                <tr>
+                    <th>Género</th>
+                    <td>{{articles[articleIndex].genero}}</td>
+                </tr>
+                <tr>
+                    <th>Descripción</th>
+                    <td>{{articles[articleIndex].descripcion}}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

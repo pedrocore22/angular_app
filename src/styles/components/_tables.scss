@@ -17,5 +17,22 @@ table {
         border-bottom: 1px solid lightgray;
     }
 
+    &.side-header {
+        max-width: 620px;
+        margin: 0 auto;
+        border-collapse: separate;
+
+        th {
+            background-color: $brand-color;
+            color: white;
+            border: 1px solid $brand-color;
+        }
+
+        td {
+            border: 1px solid $brand-color;
+        }
+
+    }
+
 }
 
