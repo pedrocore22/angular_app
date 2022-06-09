@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateArticleComponent } from './articles/create-article/create-article.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { UpdateArticleComponent } from './articles/update-article/update-article.component';
+import { ArticleFormComponent } from './articles/article-form/article-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HeaderNavComponent,
     SideNavComponent,
     CreateArticleComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UpdateArticleComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,

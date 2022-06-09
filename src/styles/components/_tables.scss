@@ -17,6 +17,10 @@ table {
         border-bottom: 1px solid lightgray;
     }
 
+    img {
+        cursor: pointer;
+    }
+
     &.side-header {
         max-width: 620px;
         margin: 0 auto;

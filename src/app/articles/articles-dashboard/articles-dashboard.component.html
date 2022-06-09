@@ -34,7 +34,7 @@
                         <span (click)="showArticle(i)">
                             <img src="/assets/icons_app-main/eye.svg" alt="">
                         </span>
-                        <span class="m-l">
+                        <span class="m-l" routerLink="/update-article/{{article.id}}">
                             <img src="/assets/icons_app-main/edit.svg" alt="">
                         </span>
                     </td>
@@ -57,23 +57,23 @@
             <table class="side-header">
                 <tr>
                     <th>Código SKU</th>
-                    <td>{{articles[articleIndex].sku}}</td>
+                    <td>{{articles[articleIndex]?.sku}}</td>
                 </tr>
                 <tr>
                     <th>Marca</th>
-                    <td>{{articles[articleIndex].marca}}</td>
+                    <td>{{articles[articleIndex]?.marca}}</td>
                 </tr>
                 <tr>
                     <th>Modelo</th>
-                    <td>{{articles[articleIndex].modelo}}</td>
+                    <td>{{articles[articleIndex]?.modelo}}</td>
                 </tr>
                 <tr>
                     <th>Género</th>
-                    <td>{{articles[articleIndex].genero}}</td>
+                    <td>{{articles[articleIndex]?.genero}}</td>
                 </tr>
                 <tr>
                     <th>Descripción</th>
-                    <td>{{articles[articleIndex].descripcion}}</td>
+                    <td>{{articles[articleIndex]?.descripcion}}</td>
                 </tr>
             </table>
         </div>

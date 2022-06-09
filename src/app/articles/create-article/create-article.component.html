@@ -7,106 +7,11 @@
         </p>
     </div>
     <div class="card">
-        <form [formGroup]="form" (ngSubmit)="createArticulo()">
-            <div class="row">
-                <div class="col-50">
-                    <label>
-                        Código SKU
-                        <span class="alert"
-                              *ngIf="form.controls?.['sku']?.errors?.['required']">
-                            *
-                        </span>
-                        <span class="alert"
-                              *ngIf="form.controls?.['sku']?.errors?.['required'] &&
-                                     form.controls?.['sku']?.dirty">
-                            SKU obligatorio
-                        </span>
-                        <span class="alert"
-                              *ngIf="form.controls?.['sku']?.errors?.['minlength']">
-                            SKU debe tener 4 caracteres
-                        </span>
-                        <span class="success"
-                              *ngIf="form.controls?.['sku']?.valid">
-                            &#10004;
-                        </span>
-                    </label>
-                    <input type="text" formControlName="sku" maxlength="4">
-                </div>
-                <div class="col-50">
-                    <label>
-                        Marca
-                        <span class="alert"
-                              *ngIf="form.controls?.['marca']?.errors?.['required']">
-                            *
-                        </span>
-                        <span class="alert"
-                              *ngIf="form.controls?.['marca']?.errors?.['required'] &&
-                                     form.controls?.['marca']?.dirty">
-                            Marca obligatoria
-                        </span>
-                        <span class="success"
-                                *ngIf="form.controls?.['marca']?.valid">
-                            &#10004;
-                        </span>
-                    </label>
-                    <input type="text" formControlName="marca">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-50">
-                    <label>
-                        Modelo
-                        <span class="alert"
-                              *ngIf="form.controls?.['modelo']?.errors?.['required']">
-                            *
-                        </span>
-                        <span class="alert"
-                              *ngIf="form.controls?.['modelo']?.errors?.['required'] &&
-                                     form.controls?.['modelo']?.dirty">
-                            Modelo obligatorio
-                        </span>
-                        <span class="success"
-                                *ngIf="form.controls?.['modelo']?.valid">
-                            &#10004;
-                        </span>                    
-                    </label>
-                    <input type="text" formControlName="modelo">
-                </div>
-                <div class="col-50">
-                    <label>Género</label>
-                    <select formControlName="genero">
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer">Mujer</option>
-                        <option value="Niña">Niña</option>
-                        <option value="Niño">Niño</option>
-                        <option value="todos">todos</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-100">
-                    <label>Descripción</label>
-                    <textarea formControlName="descripcion"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-100 flex j-end">
-                    <button class="outline"
-                            type="button"
-                            routerLink="/articles">Cancelar</button>
-                    <button class="m-l" 
-                            [disabled]="form.invalid || isLoading"
-                            type="submit">
-                            <span *ngIf="isLoading">Espere...</span>
-                            <span *ngIf="!isLoading">Enviar</span>
-                    </button>
-                </div>
-            </div>
-        </form>
+       <app-article-form></app-article-form>
     </div>
 </div>
-<div class="toast" 
+<!-- <div class="toast" 
      [ngClass]="classToast" 
      *ngIf="isShowToast">
     <p>{{messageToast}}</p>
-</div>
+</div> -->
