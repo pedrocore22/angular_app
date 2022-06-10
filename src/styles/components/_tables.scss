@@ -15,6 +15,16 @@ table {
     td {
         padding: 0.5rem 1rem;
         border-bottom: 1px solid lightgray;
+
+        &.icons {
+            span {
+                img {
+                    height: 26px;
+                    width: 26px;
+                }
+            }
+        }
+
     }
 
     img {

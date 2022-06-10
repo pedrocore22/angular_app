@@ -11,6 +11,7 @@ export class ArticlesDashboardComponent implements OnInit {
 
   @ViewChild('search') searchInputRef: ElementRef = new ElementRef({});
   @ViewChild('overlay') overlayRef: ElementRef = new ElementRef({});
+  @ViewChild('overlaySmall') overlaySmallRef: ElementRef = new ElementRef({});
   articles: Array<any> = [];
   form: FormGroup = new FormGroup({});
   isSearching: boolean = false;
@@ -75,6 +76,21 @@ export class ArticlesDashboardComponent implements OnInit {
       this.overlayRef.nativeElement.classList.toggle('display');
       setTimeout(() => {
         this.overlayRef.nativeElement.classList.toggle('open');
+      }, 100); 
+    }
+  }
+
+  toggleSmallModal() {
+    // Just for fun :)
+    if (this.overlaySmallRef.nativeElement.classList.contains('display')) {
+      this.overlaySmallRef.nativeElement.classList.toggle('open');
+      setTimeout(() => {
+        this.overlaySmallRef.nativeElement.classList.toggle('display');
+      }, 600);
+    } else {
+      this.overlaySmallRef.nativeElement.classList.toggle('display');
+      setTimeout(() => {
+        this.overlaySmallRef.nativeElement.classList.toggle('open');
       }, 100); 
     }
   }

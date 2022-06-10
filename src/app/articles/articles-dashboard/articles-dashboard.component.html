@@ -30,14 +30,14 @@
                     <td>{{article.marca}}</td>
                     <td>{{article.modelo}}</td>
                     <td>{{article.genero}}</td>
-                    <td>
+                    <td class="icons">
                         <span (click)="showArticle(i)">
                             <img src="/assets/icons_app-main/eye.svg" alt="">
                         </span>
                         <span class="m-l" routerLink="/update-article/{{article.id}}">
                             <img src="/assets/icons_app-main/edit.svg" alt="">
                         </span>
-                        <span class="m-l">
+                        <span class="m-l" (click)="toggleSmallModal()">
                             <img src="/assets/icons_app-main/trash.svg" alt="">
                         </span>
                     </td>
@@ -79,6 +79,21 @@
                     <td>{{articles[articleIndex]?.descripcion}}</td>
                 </tr>
             </table>
+        </div>
+    </div>
+</div>
+<div class="overlay" #overlaySmall>
+    <div class="modal small">
+        <div class="modal-header">
+            <span (click)="toggleSmallModal()">&#x2715;</span>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de eliminar el artículo?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="outline"
+                    (click)="toggleSmallModal()">Cancelar</button>
+            <button>Aceptar</button>
         </div>
     </div>
 </div>
