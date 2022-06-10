@@ -13,6 +13,7 @@ import { CreateArticleComponent } from './articles/create-article/create-article
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 import { ArticleFormComponent } from './articles/article-form/article-form.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ArticleFormComponent } from './articles/article-form/article-form.compo
     CreateArticleComponent,
     SpinnerComponent,
     UpdateArticleComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

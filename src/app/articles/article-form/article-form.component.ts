@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticlesService } from 'src/app/services/articles.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-article-form',
@@ -16,6 +17,7 @@ export class ArticleFormComponent implements OnInit {
   @Input() saveMode: string = '';
 
   constructor(private articlesService: ArticlesService,
+              private toastService: ToastService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -50,10 +52,12 @@ export class ArticleFormComponent implements OnInit {
                           .subscribe({
                             next: (data: any) => {
                               this.isLoading = false;
+                              this.toastService.setToastMessages(data.message, 'success');
                               this.router.navigate(['/articles']);
                             },
                             error: (err: any) => {
                               this.isLoading = false;
+                              this.toastService.setToastMessages(err.error.message, 'warning')
                             }
                           })
     }
