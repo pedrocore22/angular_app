@@ -37,7 +37,7 @@
                         <span class="m-l" routerLink="/update-article/{{article.id}}">
                             <img src="/assets/icons_app-main/edit.svg" alt="">
                         </span>
-                        <span class="m-l" (click)="toggleSmallModal()">
+                        <span class="m-l" (click)="setArticleDeleteId(article.id)">
                             <img src="/assets/icons_app-main/trash.svg" alt="">
                         </span>
                     </td>
@@ -93,7 +93,12 @@
         <div class="modal-footer">
             <button class="outline"
                     (click)="toggleSmallModal()">Cancelar</button>
-            <button>Aceptar</button>
+            <button (click)="deleteArticle()"
+                    type="button"
+                    [disabled]="isDeleting">
+                    <span *ngIf="isDeleting">Espere...</span>
+                    <span *ngIf="!isDeleting">Aceptar</span>
+            </button>
         </div>
     </div>
 </div>

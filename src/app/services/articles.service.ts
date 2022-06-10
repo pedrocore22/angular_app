@@ -58,4 +58,13 @@ export class ArticlesService {
                     )        
   }
 
+  deleteArticle(id: string) {
+    return this.http.delete(this.articlesEndpoint + '/' + id)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )        
+  }
+
 }

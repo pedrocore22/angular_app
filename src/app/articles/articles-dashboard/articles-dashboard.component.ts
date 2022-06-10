@@ -16,6 +16,8 @@ export class ArticlesDashboardComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   isSearching: boolean = false;
   articleIndex: number = 0;
+  articleDeleteId: string = '';
+  isDeleting: boolean = false;
 
   constructor(private articlesService: ArticlesService) { }
 
@@ -98,6 +100,33 @@ export class ArticlesDashboardComponent implements OnInit {
   showArticle(index: number): void {
     this.articleIndex = index;
     this.toggleModal();
+  }
+
+  setArticleDeleteId(id: string): void {
+    this.articleDeleteId = id;
+    this.toggleSmallModal();
+  }
+
+  deleteArticle(): void {
+    this.isDeleting = true;
+    this.articlesService.deleteArticle(this.articleDeleteId)
+                        .subscribe({
+                          next: (data: any) => {
+                            this.toggleSmallModal();
+                            setTimeout(() => {
+                              this.isDeleting = false;
+                            }, 600);
+                            console.log(data);
+                            this.articles = [];
+                          },
+                          error: (err: any) => {
+                            this.toggleSmallModal();
+                            setTimeout(() => {
+                              this.isDeleting = false;
+                            }, 600);
+                            console.log(err);
+                          }
+                        })
   }
 
 }
