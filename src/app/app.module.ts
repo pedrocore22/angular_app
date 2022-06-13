@@ -14,6 +14,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 import { ArticleFormComponent } from './articles/article-form/article-form.component';
 import { ToastComponent } from './toast/toast.component';
+import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ToastComponent } from './toast/toast.component';
     SpinnerComponent,
     UpdateArticleComponent,
     ArticleFormComponent,
-    ToastComponent
+    ToastComponent,
+    VendorsDashboardComponent
   ],
   imports: [
     BrowserModule,
