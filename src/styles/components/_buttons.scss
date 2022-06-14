@@ -18,3 +18,20 @@ button {
         cursor: not-allowed;
     }
 }
+
+.page-buttons {
+    @include flex(row, center, center);
+
+    button {
+        padding: 0.5rem 0.7rem;
+        margin: 0 0.3rem;
+    }
+
+    span {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+        margin: 0 0.3rem;
+        border: solid 1px $brand-color;
+        border-radius: 0.4rem;
+    }
+}

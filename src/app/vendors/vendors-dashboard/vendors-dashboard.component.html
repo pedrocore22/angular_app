@@ -4,7 +4,7 @@
             <span routerLink="/">Inicio > </span>
             <span class="active">Proveedores</span>
         </p>
-        <button class="outline">Nuevo</button>
+        <button class="outline" routerLink="/create-vendor">Nuevo</button>
     </div>
     <div class="card">
         <table>
@@ -14,12 +14,26 @@
                 <th>Localidad</th>
                 <th></th>
             </tr>
-            <tr *ngFor="let vendor of vendors">
-                <td>{{vendor.cif}}</td>
-                <td>{{vendor.nombre}}</td>
-                <td>{{vendor.localidad}}</td>
-                <td></td>
-            </tr>
+            <ng-container *ngIf="!isLoading">
+                <tr *ngFor="let vendor of vendors">
+                    <td>{{vendor.cif}}</td>
+                    <td>{{vendor.nombre}}</td>
+                    <td>{{vendor.localidad}}</td>
+                    <td></td>
+                </tr>
+            </ng-container>
         </table>
+        <app-spinner *ngIf="isLoading"></app-spinner>
+        <div class="page-buttons" *ngIf="!isLoading">
+            <button (click)="firstPage()"
+                    [disabled]="pageState.isFirstPage"><<</button>
+            <button (click)="previousPage()"
+                    [disabled]="pageState.isFirstPage"><</button>
+            <span>{{pageState.currentNumberPage + 1}} de {{pageState.lastPage + 1}}</span>
+            <button (click)="nextPage()"
+                    [disabled]="pageState.isLastPage">></button>
+            <button (click)="lastPage()"
+                    [disabled]="pageState.isLastPage">>></button>
+        </div>
     </div>
 </div>

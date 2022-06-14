@@ -11,8 +11,8 @@ export class VendorsService {
 
   constructor(private http: HttpClient) { }
 
-  getVendors() {
-    return this.http.get(this.vendorsEndpoint)
+  getVendors(numberPage: number) {
+    return this.http.get(this.vendorsEndpoint + '/page/' + numberPage)
                     .pipe(
                       map((res: any) => {
                         return res;

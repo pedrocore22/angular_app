@@ -15,6 +15,8 @@ import { UpdateArticleComponent } from './articles/update-article/update-article
 import { ArticleFormComponent } from './articles/article-form/article-form.component';
 import { ToastComponent } from './toast/toast.component';
 import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-dashboard.component';
+import { VendorFormComponent } from './vendors/vendor-form/vendor-form.component';
+import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-d
     UpdateArticleComponent,
     ArticleFormComponent,
     ToastComponent,
-    VendorsDashboardComponent
+    VendorsDashboardComponent,
+    VendorFormComponent,
+    CreateVendorComponent
   ],
   imports: [
     BrowserModule,
