@@ -16,7 +16,7 @@ export class VendorsDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.vendorsService.getVendors()
                        .subscribe({
-                         next: (data: any) => console.log(data),
+                         next: (data: any) => this.vendors = data,
                          error: (err: any) => console.log(err)
                        })
   }

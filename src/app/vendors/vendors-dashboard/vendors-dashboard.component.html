@@ -6,4 +6,20 @@
         </p>
         <button class="outline">Nuevo</button>
     </div>
+    <div class="card">
+        <table>
+            <tr>
+                <th>CIF</th>
+                <th>Nombre</th>
+                <th>Localidad</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let vendor of vendors">
+                <td>{{vendor.cif}}</td>
+                <td>{{vendor.nombre}}</td>
+                <td>{{vendor.localidad}}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
 </div>
