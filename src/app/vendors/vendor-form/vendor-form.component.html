@@ -1,1 +1,43 @@
-<p>vendor-form works!</p>
+<form>
+    <div class="row">
+        <div class="col-50">
+            <label>Nombre</label>
+            <input type="text">
+        </div>
+        <div class="col-50">
+            <label>CIF</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-100">
+            <label>Dirección</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-33">
+            <label>Localidad</label>
+            <input type="text">
+        </div>
+        <div class="col-33">
+            <label>Correo electrónico</label>
+            <input type="text">
+        </div>
+        <div class="col-33">
+            <label>Teléfono</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="row flex j-end">
+        <button class="outline"
+                type="button"
+                routerLink="/vendors">
+            Cancelar
+        </button>
+        <button class="m-l"
+                type="submit">
+            Enviar
+        </button>
+    </div>
+</form>

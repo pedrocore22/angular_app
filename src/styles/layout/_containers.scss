@@ -24,9 +24,16 @@
                 padding: 1rem;
                 width: 50%;
             }
+            &-33 {
+                padding: 1rem;
+                width: 33.3333%;
+            }
 
             @media (max-width: 720px) {
                 &-50 {
+                    width: 100%;
+                }
+                &-33 {
                     width: 100%;
                 }
             }
