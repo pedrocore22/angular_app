@@ -74,8 +74,10 @@
         </button>
         <button class="m-l"
                 *ngIf="form.valid"
+                [disabled]="isLoading"
                 type="submit">
-            Enviar
+            <span *ngIf="isLoading">Espere...</span>
+            <span *ngIf="!isLoading">Enviar</span>
         </button>
     </div>
 </form>

@@ -19,4 +19,14 @@ export class VendorsService {
                       })
                     )
   }
+
+  postVendor(vendor: any) {
+    return this.http.post(this.vendorsEndpoint, vendor)
+                    .pipe(
+                      map((res: any) => {
+                        return res;
+                      })
+                    )
+  }
+
 }
