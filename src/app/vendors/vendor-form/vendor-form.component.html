@@ -1,32 +1,63 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="saveVendor()">
     <div class="row">
         <div class="col-50">
-            <label>Nombre</label>
-            <input type="text">
+            <label>
+                Nombre
+                <span class="alert"
+                      *ngIf="form.controls?.['nombre']?.errors?.['required'] &&
+                             isShowValidation">
+                    Campo obligatorio
+                </span>
+            </label>
+            <input type="text" formControlName="nombre">
         </div>
         <div class="col-50">
-            <label>CIF</label>
-            <input type="text">
+            <label>
+                CIF
+                <span class="alert"
+                      *ngIf="form.controls?.['cif']?.errors?.['required'] &&
+                             isShowValidation">
+                    Campo obligatorio
+                </span>
+                <span class="alert"
+                      *ngIf="form.controls?.['cif']?.errors?.['pattern'] &&
+                             isShowValidation">
+                    Formato CIF no válido
+                </span>
+            </label>
+            <input type="text" formControlName="cif" maxlength="9">
         </div>
     </div>
     <div class="row">
         <div class="col-100">
             <label>Dirección</label>
-            <input type="text">
+            <input type="text" formControlName="direccion">
         </div>
     </div>
     <div class="row">
-        <div class="col-33">
+        <div class="col-50">
             <label>Localidad</label>
-            <input type="text">
+            <input type="text" formControlName="localidad">
         </div>
-        <div class="col-33">
-            <label>Correo electrónico</label>
-            <input type="text">
-        </div>
-        <div class="col-33">
+        <div class="col-50">
             <label>Teléfono</label>
-            <input type="text">
+            <input type="text" formControlName="telefono">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-100">
+            <label>
+                Correo electrónico
+                <span class="alert" *ngIf="form.controls?.['email']?.errors?.['required'] &&
+                                       isShowValidation">
+                    Campo obligatorio
+                </span>
+                <span class="alert" *ngIf="form.controls?.['email']?.errors?.['pattern'] &&
+                                       isShowValidation">
+                    Formato correo no válido
+                </span>
+            </label>
+            <input type="text" formControlName="email">
         </div>
     </div>
     <div class="row flex j-end">
@@ -36,6 +67,13 @@
             Cancelar
         </button>
         <button class="m-l"
+                *ngIf="form.invalid"
+                type="button"
+                (click)="showValidation()">
+            Enviar
+        </button>
+        <button class="m-l"
+                *ngIf="form.valid"
                 type="submit">
             Enviar
         </button>

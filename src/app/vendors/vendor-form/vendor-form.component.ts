@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class VendorFormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
+  isShowValidation: boolean = false;
 
   constructor() { }
 
@@ -20,8 +21,17 @@ export class VendorFormComponent implements OnInit {
       direccion: new FormControl(''),
       localidad: new FormControl(''),
       email: new FormControl('', [Validators.required,
-                                  Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)])                          
+                                  Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)]),
+      telefono: new FormControl('')                                                     
     })
+  }
+
+  showValidation() {
+    this.isShowValidation = true;
+  }
+
+  saveVendor(): void {
+    console.log(this.form.value);
   }
 
 }
