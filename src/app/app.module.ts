@@ -17,6 +17,8 @@ import { ToastComponent } from './toast/toast.component';
 import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-dashboard.component';
 import { VendorFormComponent } from './vendors/vendor-form/vendor-form.component';
 import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
+import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
+import { Pantalla404Component } from './pantalla404/pantalla404.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.com
     ToastComponent,
     VendorsDashboardComponent,
     VendorFormComponent,
-    CreateVendorComponent
+    CreateVendorComponent,
+    OffersDashboardComponent,
+    Pantalla404Component
   ],
   imports: [
     BrowserModule,
