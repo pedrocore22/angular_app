@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="sendOffer()">
     <div class="row">
         <div class="col-100 relative">
             <label>
@@ -34,10 +34,23 @@
             <input type="text" formControlName="proveedorTerm"
                                placeholder="Busque por nombre">
             <div class="search-results">
-                <div class="item" *ngFor="let vendor of vendors">
+                <div class="item" 
+                     *ngFor="let vendor of vendors"
+                     (click)="setSelectedVendor(vendor)">
                     {{vendor.nombre}} | {{vendor.cif}} | {{vendor.localidad}}
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row" formGroupName="proveedor">
+        <div class="col-33">
+            <input type="text" formControlName="nombre" readonly>
+        </div>
+        <div class="col-33">
+            <input type="text" formControlName="cif" readonly>
+        </div>
+        <div class="col-33">
+            <input type="text" formControlName="localidad" readonly>
         </div>
     </div>
     <div class="row">
@@ -45,7 +58,22 @@
             <label>
                 Precio
             </label>
-            <input type="number">
+            <input type="number" formControlName="precio">
+        </div>
+        <div class="col-50">
+            <label>
+                Plazo de entrega (días)
+            </label>
+            <input type="number" formControlName="plazoEntregaDias">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-100 flex j-end">
+            <button class="outline" 
+                    type="button"
+                    routerLink="/offers">Cancelar</button>
+            <button class="m-l"
+                    type="submit">Enviar</button>
         </div>
     </div>
 </form>
