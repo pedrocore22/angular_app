@@ -20,6 +20,15 @@ export class VendorsService {
                     )
   }
 
+  searchVendors(term: string) {
+    return this.http.get(this.vendorsEndpoint + '/search/' + term)
+                    .pipe(
+                      map((res: any) => {
+                        return res;
+                      })
+                    )
+  }
+
   postVendor(vendor: any) {
     return this.http.post(this.vendorsEndpoint, vendor)
                     .pipe(
