@@ -19,6 +19,8 @@ import { VendorFormComponent } from './vendors/vendor-form/vendor-form.component
 import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
 import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
 import { Pantalla404Component } from './pantalla404/pantalla404.component';
+import { CreateOfferComponent } from './offers/create-offer/create-offer.component';
+import { OfferFormComponent } from './offers/offer-form/offer-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { Pantalla404Component } from './pantalla404/pantalla404.component';
     VendorFormComponent,
     CreateVendorComponent,
     OffersDashboardComponent,
-    Pantalla404Component
+    Pantalla404Component,
+    CreateOfferComponent,
+    OfferFormComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { ArticlesDashboardComponent } from './articles/articles-dashboard/articl
 import { CreateArticleComponent } from './articles/create-article/create-article.component';
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 import { HomeComponent } from './home/home.component';
+import { CreateOfferComponent } from './offers/create-offer/create-offer.component';
 import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
 import { Pantalla404Component } from './pantalla404/pantalla404.component';
 import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'vendors', component: VendorsDashboardComponent},
   {path: 'create-vendor', component: CreateVendorComponent},
   {path: 'offers', component: OffersDashboardComponent},
+  {path: 'create-offer', component: CreateOfferComponent},
   {path: '**', component: Pantalla404Component}
 ];
 
