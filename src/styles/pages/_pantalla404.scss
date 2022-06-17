@@ -1,0 +1,25 @@
+.p404 {
+    .row {
+        .col-50:nth-child(1) {
+            img {
+                width: 100%;
+                max-width: 440px;
+                display: block;
+                margin: 0 auto;
+                border: 8px solid $brand-color;
+            }
+        }
+        .col-50:nth-child(2) {
+            p {
+                text-align: center;
+            }
+            p:nth-child(1) {
+                font-size: 6rem;
+            }
+            button {
+                display: block;
+                margin: 1rem auto;
+            }
+        }
+    }
+}

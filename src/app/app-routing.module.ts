@@ -5,6 +5,7 @@ import { CreateArticleComponent } from './articles/create-article/create-article
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 import { HomeComponent } from './home/home.component';
 import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
+import { Pantalla404Component } from './pantalla404/pantalla404.component';
 import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
 import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-dashboard.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'update-article/:id', component: UpdateArticleComponent},
   {path: 'vendors', component: VendorsDashboardComponent},
   {path: 'create-vendor', component: CreateVendorComponent},
-  {path: 'offers', component: OffersDashboardComponent}
+  {path: 'offers', component: OffersDashboardComponent},
+  {path: '**', component: Pantalla404Component}
 ];
 
 @NgModule({
