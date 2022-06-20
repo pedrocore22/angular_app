@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { OffersService } from 'src/app/services/offers.service';
 import { VendorsService } from 'src/app/services/vendors.service';
@@ -19,7 +20,8 @@ export class OfferFormComponent implements OnInit {
 
   constructor(private articulosService: ArticlesService,
               private vendorsService: VendorsService,
-              private offersService: OffersService) { }
+              private offersService: OffersService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -108,7 +110,7 @@ export class OfferFormComponent implements OnInit {
     this.offersService.postOffer(offer)
                       .subscribe({
                         next: (data: any) => {
-                          console.log(data);
+                          this.router.navigate(['/offers']);
                         },
                         error: (err: any) => {
                           console.log(err);
