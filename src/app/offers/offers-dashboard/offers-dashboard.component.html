@@ -14,15 +14,51 @@
                        formControlName="articuloTerm">
                 <div class="search-results">
                     <div class="item"
-                         *ngFor="let article of articles">
+                         *ngFor="let article of articles"
+                         (click)="setSelectedArticle(article)">
                         {{article.marca}} | {{article.modelo}} | {{article.genero}}
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="relative">
                 <input type="text"
-                       placeholder="Nombre proveedor">
+                       placeholder="Nombre proveedor"
+                       formControlName="proveedorTerm">
+                <div class="search-results">
+                    <div class="item"
+                         *ngFor="let vendor of vendors"
+                         (click)="setSelectedVendor(vendor)">
+                        {{vendor.nombre}} | {{vendor.localidad}}
+                    </div>
+                </div>
             </div>
         </form>
+        <table>
+            <tr>
+                <th colspan="3">Artículo</th>
+                <th colspan="2">Proveedor</th>
+            </tr>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Género</th>
+                <th>Nombre</th>
+                <th>Localidad</th>
+                <th>Precio</th>
+                <th>Plazo Entrega (días)</th>
+            </tr>
+            <tr *ngFor="let offer of offers">
+                <td>{{offer.articulo.marca}}</td>
+                <td>{{offer.articulo.modelo}}</td>
+                <td>{{offer.articulo.genero}}</td>
+                <td>{{offer.proveedor.nombre}}</td>
+                <td>{{offer.proveedor.localidad}}</td>
+                <td>{{offer.precio}}</td>
+                <td>{{offer.plazoEntregaDias}}</td>
+            </tr>
+            <tr *ngIf="offers.length === 0">
+                <td colspan="7">No se encontraron ofertas</td>
+            </tr>
+        </table>
     </div>
 </div>
