@@ -11,6 +11,36 @@ export class OffersService {
 
   constructor(private http: HttpClient) { }
 
+  getOffersByArticle(articuloId: string) {
+    return this.http.get(this.offersEndpoint + '/articulo/' + articuloId)
+                    .pipe(
+                      map((res: any) => {
+                        return res;
+                      })
+                    )                    
+  }
+
+  getOffersByVendor(proveedorId: string) {
+    return this.http.get(this.offersEndpoint + '/proveedor/' + proveedorId)
+                    .pipe(
+                      map((res: any) => {
+                        return res;
+                      })
+                    )                    
+  }
+
+  getOffersByArticleAndVendor(articuloId: string, proveedorId: string) {
+    return this.http.get(this.offersEndpoint + 
+                         '/articulo-proveedor/' + 
+                         articuloId + '/' +
+                         proveedorId)
+                    .pipe(
+                      map((res: any) => {
+                        return res;
+                      })
+                    )                    
+  }
+
   postOffer(offer: any) {
     return this.http.post(this.offersEndpoint, offer)
                     .pipe(

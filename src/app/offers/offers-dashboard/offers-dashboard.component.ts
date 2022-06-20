@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ArticlesService } from 'src/app/services/articles.service';
 
 @Component({
   selector: 'app-offers-dashboard',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffersDashboardComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup = new FormGroup({});
+  articles: Array<any> = [];
+
+  constructor(private articlesService: ArticlesService) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      articuloTerm: new FormControl('')
+    })
+    this.searchArticles();
   }
 
+  searchArticles() {
+    this.form.get('articuloTerm')?.valueChanges
+             .subscribe((data: any) => {
+                if(data.length > 0) {
+                  this.articlesService.getArticlesByModel(data)
+                                      .subscribe({
+                                        next: (data: any) => {
+                                          this.articles = data.articulos;
+                                        },
+                                        error: (err: any) => {
+                                          console.log(err);
+                                        }
+                                      })
+                } else {
+                  this.articles = [];
+                }
+              })
+  }
 }

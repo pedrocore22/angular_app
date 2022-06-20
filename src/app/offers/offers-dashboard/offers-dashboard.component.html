@@ -7,6 +7,22 @@
         <button class="outline" routerLink="/create-offer">Nueva</button>
     </div>
     <div class="card">
-        
+        <form class="search" [formGroup]="form">
+            <div class="relative">
+                <input type="text"
+                       placeholder="Modelo artículo"
+                       formControlName="articuloTerm">
+                <div class="search-results">
+                    <div class="item"
+                         *ngFor="let article of articles">
+                        {{article.marca}} | {{article.modelo}} | {{article.genero}}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="text"
+                       placeholder="Nombre proveedor">
+            </div>
+        </form>
     </div>
 </div>
