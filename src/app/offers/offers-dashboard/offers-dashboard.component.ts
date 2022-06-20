@@ -13,7 +13,9 @@ export class OffersDashboardComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   articles: Array<any> = [];
+  articleSelected: any = null;
   vendors: Array<any> = [];
+  vendorSelected: any = null;
   offers: Array<any> = [];
 
   constructor(private articlesService: ArticlesService,
@@ -69,31 +71,53 @@ export class OffersDashboardComponent implements OnInit {
 
 
   setSelectedArticle(article: any): void {
-    this.offersService.getOffersByArticle(article.id)
-                      .subscribe({
-                        next: (data: any) => {
-                          this.articles = [];
-                          this.form.get('articuloTerm')?.setValue('');
-                          this.offers = data;
-                        },
-                        error: (err: any) => {
-                          console.log(err);
-                        }
-                      })
+    this.articleSelected = article;
+    this.articles = [];
+    this.form.get('articuloTerm')?.setValue('');
+    this.searchOffers();
   }
 
   setSelectedVendor(vendor: any): void {
-    this.offersService.getOffersByVendor(vendor.id)
-                      .subscribe({
-                        next: (data: any) => {
-                          this.vendors = [];
-                          this.form.get('proveedorTerm')?.setValue('');
-                          this.offers = data;
-                        },
-                        error: (err: any) => {
-                          console.log(err);
-                        }
-                      })
+    this.vendorSelected = vendor;
+    this.vendors = [];
+    this.form.get('proveedorTerm')?.setValue('');
+    this.searchOffers();
+  }
+
+  searchOffers() {
+    if (this.articleSelected !== null &&
+        this.vendorSelected !== null) {
+      this.offersService.getOffersByArticleAndVendor(this.articleSelected.id,
+                                                     this.vendorSelected.id)
+                        .subscribe({
+                          next: (data: any) => {
+                            this.offers = data;
+                          },
+                          error: (err: any) => {
+                            console.log(err);
+                          }
+                        })
+    } else if (this.articleSelected !== null) {
+      this.offersService.getOffersByArticle(this.articleSelected.id)
+                        .subscribe({
+                          next: (data: any) => {
+                            this.offers = data;
+                          },
+                          error: (err: any) => {
+                            console.log(err);
+                          }
+                        })
+    } else if (this.vendorSelected !== null) {
+      this.offersService.getOffersByVendor(this.vendorSelected.id)
+                        .subscribe({
+                          next: (data: any) => {
+                            this.offers = data;
+                          },
+                          error: (err: any) => {
+                            console.log(err);
+                          }
+                        })
+    }
   }
 
 }
