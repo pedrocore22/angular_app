@@ -58,6 +58,14 @@
         justify-content: flex-end;
     }
 
+    &.j-space-between {
+        justify-content: space-between;
+    }
+
+    &.a-center {
+        align-items: center;
+    }
+
 }
 
 // Clases para espaciado "al vuelo"

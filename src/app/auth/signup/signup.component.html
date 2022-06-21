@@ -1,0 +1,57 @@
+<div class="auth-container">
+    <div></div>
+    <div>
+        <form [formGroup]="form">
+            <h1>Registre sus datos</h1>
+            <div class="row">
+                <div class="col-50">
+                    <label>Nombre</label>
+                    <input type="text" formControlName="nombre">
+                </div>
+                <div class="col-50">
+                    <label>Apellidos</label>
+                    <input type="text" formControlName="apellidos">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <label>Email</label>
+                    <input type="text" formControlName="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <label>Contraseña</label>
+                    <input type="password" formControlName="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <label>Repita contraseña</label>
+                    <input type="password" formControlName="repitePassword">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100 flex j-space-between a-center m-t">
+                    <p>Pulse <b routerLink="/">aquí</b> si ya dispone de cuenta</p>
+                    <button type="button"
+                            *ngIf="form.invalid"
+                            (click)="setValidationMessages()">
+                        Registrar
+                    </button>
+                    <button type="submit"
+                            *ngIf="form.valid">
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="validation-info">
+            <ul>
+                <li *ngFor="let message of validationMessages">
+                    {{message}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

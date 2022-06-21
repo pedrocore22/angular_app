@@ -18,10 +18,15 @@
 @import './layout/header-nav';
 @import './layout/side-nav';
 
+@import './pages/auth';
 @import './pages/pantalla404';
 
 body {
     font-family: $regular-font-family;
     color: $regular-font-color;
     background-color: #f5f5f5;
+}
+
+[routerLink] {
+    cursor: pointer;
 }
