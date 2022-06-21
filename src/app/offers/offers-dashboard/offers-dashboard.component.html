@@ -19,6 +19,14 @@
                         {{article.marca}} | {{article.modelo}} | {{article.genero}}
                     </div>
                 </div>
+                <div class="selected-item" *ngIf="articleSelected">
+                    <span>
+                        {{articleSelected?.marca}} | 
+                        {{articleSelected?.modelo}} | 
+                        {{articleSelected?.genero}}
+                    </span>
+                    <span (click)="clearSelectedArticle()">&times;</span>
+                </div>
             </div>
             <div class="relative">
                 <input type="text"
@@ -30,6 +38,13 @@
                          (click)="setSelectedVendor(vendor)">
                         {{vendor.nombre}} | {{vendor.localidad}}
                     </div>
+                </div>
+                <div class="selected-item" *ngIf="vendorSelected">
+                    <span>
+                        {{vendorSelected?.nombre}} |
+                        {{vendorSelected?.localidad}}
+                    </span>
+                    <span (click)="clearSelectedVendor()">&times;</span>
                 </div>
             </div>
         </form>

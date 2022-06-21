@@ -7,7 +7,13 @@ form {
         margin-bottom: 1rem;
         @include flex(row, space-around, center);
 
+        & > div {
+            height: 5.5rem;
+        }
+
         input {
+            display: block;
+            margin-bottom: 1rem;
             width: 440px;
             padding-left: 1.6rem;
             background-image: url('../../assets/icons_app-main/search.svg');
@@ -136,4 +142,24 @@ form {
     top: 2.4rem;
     left: 0;
     width: 100%;
+}
+
+.selected-item {
+    border: 1px solid $brand-color;
+    border-radius: 1.5rem;
+    margin-top: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    display: inline;
+
+    & span:nth-child(1) {
+        font-size: 0.8rem;
+    }
+
+    & span:nth-child(2) {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+        color: $brand-color;
+        cursor: pointer;
+    }
+
 }

@@ -117,7 +117,19 @@ export class OffersDashboardComponent implements OnInit {
                             console.log(err);
                           }
                         })
+    } else {
+      this.offers = []; // All credits to Manuel :)
     }
+  }
+
+  clearSelectedArticle(): void {
+    this.articleSelected = null;
+    this.searchOffers();
+  }
+
+  clearSelectedVendor(): void {
+    this.vendorSelected = null;
+    this.searchOffers();
   }
 
 }
