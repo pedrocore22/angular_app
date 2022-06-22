@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,8 @@ export class AuthService {
 
   authEndpoint: string = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: Router) { }
 
   signUp(user: any) {
     return this.http.post(this.authEndpoint, user)
@@ -27,6 +29,11 @@ export class AuthService {
                         return res;
                       })
                     )
+  }
+
+  logOut() {
+    localStorage.removeItem('auth');
+    this.router.navigate(['/']);
   }
 
 }

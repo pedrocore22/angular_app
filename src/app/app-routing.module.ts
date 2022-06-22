@@ -5,6 +5,7 @@ import { CreateArticleComponent } from './articles/create-article/create-article
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { CreateOfferComponent } from './offers/create-offer/create-offer.component';
 import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
@@ -15,14 +16,14 @@ import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-d
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'articles', component: ArticlesDashboardComponent},
-  {path: 'create-article', component: CreateArticleComponent },
-  {path: 'update-article/:id', component: UpdateArticleComponent},
-  {path: 'vendors', component: VendorsDashboardComponent},
-  {path: 'create-vendor', component: CreateVendorComponent},
-  {path: 'offers', component: OffersDashboardComponent},
-  {path: 'create-offer', component: CreateOfferComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'articles', component: ArticlesDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'create-article', component: CreateArticleComponent, canActivate: [AuthGuard] },
+  {path: 'update-article/:id', component: UpdateArticleComponent, canActivate: [AuthGuard]},
+  {path: 'vendors', component: VendorsDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'create-vendor', component: CreateVendorComponent, canActivate: [AuthGuard]},
+  {path: 'offers', component: OffersDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'create-offer', component: CreateOfferComponent, canActivate: [AuthGuard]},
   {path: '**', component: Pantalla404Component}
 ];
 
