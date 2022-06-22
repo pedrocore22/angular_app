@@ -46,7 +46,7 @@
                 </div>
             </div>
         </form>
-        <div class="validation-info" *ngIf="form.invalid">
+        <div class="validation-info" *ngIf="form.invalid || serverValidation">
             <ul>
                 <li *ngFor="let message of validationMessages">
                     {{message}}
