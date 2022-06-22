@@ -1,26 +1,41 @@
 <div class="auth-container">
     <div></div>
     <div>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="sendCredentials()">
             <h1>Inicie sesión</h1>
             <div class="row">
                 <div class="col-100">
                     <label>Email</label>
-                    <input type="text">
+                    <input type="text" formControlName="email">
                 </div>
             </div>
             <div class="row">
                 <div class="col-100">
                     <label>Contraseña</label>
-                    <input type="password">
+                    <input type="password" formControlName="password">
                 </div>
             </div>
             <div class="row">
                 <div class="col-100 flex j-space-between a-center m-t">
                     <p>Pulse <b routerLink="/signup">aquí</b> si no dispone de cuenta</p>
-                    <button type="submit">Enviar</button>
+                    <button type="button"
+                            *ngIf="form.invalid"
+                            (click)="setValidationMessages()">
+                        Enviar
+                    </button>
+                    <button type="submit"
+                            *ngIf="form.valid">
+                        Enviar
+                    </button>
                 </div>
             </div>
         </form>
+        <div class="validation-info" *ngIf="form.invalid || serverValidation">
+            <ul>
+                <li *ngFor="let message of validationMessages">
+                    {{message}}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
