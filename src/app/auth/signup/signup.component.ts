@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   validationMessages: Array<string> = [];
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -39,10 +40,34 @@ export class SignupComponent implements OnInit {
     if(this.form.controls['email']?.errors?.['pattern']) {
       this.validationMessages.push('El email no es válido');
     }
+    if(this.form.controls['password']?.errors?.['required']) {
+      this.validationMessages.push('La contraseña es obligatoria');
+    }
+    if(this.form.controls['password']?.errors?.['pattern']) {
+      this.validationMessages.push('La contraseña debe tener al menos una minúscula, una mayúscula y un número');
+    }
     if(this.form.get('password')?.value !== 
        this.form.get('repitePassword')?.value) {
       this.validationMessages.push('Las contraseñas no coinciden');
     }
+  }
+
+  sendUser(): void {
+    const user = {
+      nombre: this.form.get('nombre')?.value,
+      apellidos: this.form.get('apellidos')?.value,
+      email: this.form.get('email')?.value,
+      password: this.form.get('password')?.value
+    }
+    this.authService.signUp(user)
+                    .subscribe({
+                      next: (data: any) => {
+                        console.log(data);
+                      },
+                      error: (err: any) => {
+                        console.log(err);
+                      }
+                    })
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="auth-container">
     <div></div>
     <div>
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="sendUser()">
             <h1>Registre sus datos</h1>
             <div class="row">
                 <div class="col-50">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </form>
-        <div class="validation-info">
+        <div class="validation-info" *ngIf="form.invalid">
             <ul>
                 <li *ngFor="let message of validationMessages">
                     {{message}}
