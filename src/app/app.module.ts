@@ -24,6 +24,7 @@ import { OfferFormComponent } from './offers/offer-form/offer-form.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

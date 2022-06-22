@@ -61,6 +61,7 @@
                 <th>Localidad</th>
                 <th>Precio</th>
                 <th>Plazo Entrega (días)</th>
+                <th>Fecha oferta</th>
             </tr>
             <tr *ngFor="let offer of offers">
                 <td>{{offer.articulo.marca}}</td>
@@ -68,8 +69,9 @@
                 <td>{{offer.articulo.genero}}</td>
                 <td>{{offer.proveedor.nombre}}</td>
                 <td>{{offer.proveedor.localidad}}</td>
-                <td>{{offer.precio}}</td>
+                <td>{{offer.precio | number: '1.2-2' | currency: 'EUR' }}</td>
                 <td>{{offer.plazoEntregaDias}}</td>
+                <td>{{offer.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
             </tr>
             <tr *ngIf="offers.length === 0">
                 <td colspan="7">No se encontraron ofertas</td>
