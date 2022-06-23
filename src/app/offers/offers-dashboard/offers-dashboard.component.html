@@ -69,7 +69,7 @@
                 <td>{{offer.articulo.genero}}</td>
                 <td>{{offer.proveedor.nombre}}</td>
                 <td>{{offer.proveedor.localidad}}</td>
-                <td>{{offer.precio | number: '1.2-2' | currency: 'EUR' }}</td>
+                <td>{{offer.precio | prices }}</td>
                 <td>{{offer.plazoEntregaDias}}</td>
                 <td>{{offer.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
             </tr>

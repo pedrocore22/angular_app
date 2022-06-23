@@ -23,6 +23,7 @@ import { CreateOfferComponent } from './offers/create-offer/create-offer.compone
 import { OfferFormComponent } from './offers/offer-form/offer-form.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
+import { PricesPipe } from './pipes/prices.pipe';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { LoginComponent } from './auth/login/login.component';
     CreateOfferComponent,
     OfferFormComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    PricesPipe
   ],
   imports: [
     BrowserModule,
