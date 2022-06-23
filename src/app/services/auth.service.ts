@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   logIn(credentials: any) {
-    return this.http.post(this.authEndpoint + '/login', credentials)
+    return this.http.post(this.authEndpoint + '/login', credentials, {withCredentials: true})
                     .pipe(
                       map((res: any) => {
                         return res;

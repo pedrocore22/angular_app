@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesDashboardComponent } from './articles/articles-dashboard/articles-dashboard.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateArticleComponent } from './articles/create-article/create-article.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -24,6 +24,7 @@ import { OfferFormComponent } from './offers/offer-form/offer-form.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PricesPipe } from './pipes/prices.pipe';
+import { InterceptorService } from './services/interceptor.service';
 
 
 @NgModule({
@@ -55,7 +56,13 @@ import { PricesPipe } from './pipes/prices.pipe';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
