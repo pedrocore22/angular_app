@@ -8,9 +8,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderNavComponent implements OnInit {
 
+  user: any = {};
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.getUser()
+                    .subscribe((data: any) => {
+                      this.user = data;
+                    })
   }
 
   logOut() {

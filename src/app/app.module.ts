@@ -25,6 +25,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PricesPipe } from './pipes/prices.pipe';
 import { InterceptorService } from './services/interceptor.service';
+import { SessionComponent } from './session/session.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { InterceptorService } from './services/interceptor.service';
     OfferFormComponent,
     SignupComponent,
     LoginComponent,
-    PricesPipe
+    PricesPipe,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

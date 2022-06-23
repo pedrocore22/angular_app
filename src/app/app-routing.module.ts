@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateOfferComponent } from './offers/create-offer/create-offer.component';
 import { OffersDashboardComponent } from './offers/offers-dashboard/offers-dashboard.component';
 import { Pantalla404Component } from './pantalla404/pantalla404.component';
+import { SessionComponent } from './session/session.component';
 import { CreateVendorComponent } from './vendors/create-vendor/create-vendor.component';
 import { VendorsDashboardComponent } from './vendors/vendors-dashboard/vendors-dashboard.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'create-vendor', component: CreateVendorComponent, canActivate: [AuthGuard]},
   {path: 'offers', component: OffersDashboardComponent, canActivate: [AuthGuard]},
   {path: 'create-offer', component: CreateOfferComponent, canActivate: [AuthGuard]},
+  {path: 'session', component: SessionComponent},
   {path: '**', component: Pantalla404Component}
 ];
 
